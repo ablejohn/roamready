@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan a trip</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/planatrip.css' %}">
+</head>
+<body>
+    <header>
+        <div class="navbarcontainer">
+            <a href="/">
+                <img src="{% static 'img/RoamReady logo.png' %}" alt="Your Logo" class="logo">
+            </a>
+
+            {% include 'includes/_navbar.html' %}
+        </div>
+    </header>
+
+    <video id="video-background" playsinline autoplay muted loop>
+        <source src="{% static 'vid/planatrip.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="form-wrapper">
+            <form action="" style="margin-top: 20px;">
+                <input style="margin-top: 5px;" type="number"  min="0" name="number_of_days" id="number_of_days" placeholder="How many days do you want to spend?">
+                <input style="margin-top: 5px;" type="text" name="state" id="state" placeholder="Where do you want to visit (State)?">
+                <input style="margin-top: 5px;" type="text" name="country" id="country" placeholder="Where do you want to visit (Country)?">
+                <input style="margin-top: 5px;" type="number" min="0" name="budget" id="budget" placeholder="What's your budget in $?">
+        
+            </form>
+    <br>
+    <button onclick="getAIResponse()">Create Trip</button>
+    <br>
+
+
+    
+    <div id="response-container"></div>
+    <script>
+        function getAIResponse() {
+    const numberOfDays = document.getElementById("number_of_days").value;
+    const state = document.getElementById("state").value;
+    const country = document.getElementById("country").value;
+    const budget = document.getElementById("budget").value;
+
+    const prompt = `Create a ${numberOfDays} day trip to ${state}, ${country}. My budget is $${budget}`
+    // const prompt = document.getElementById('prompt').value;
+    // Call the OpenAI API using fetch or a library like axios
+    fetch('http://127.0.0.1:8000/plan-trip/plan-trip', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '
+        },
+        body: JSON.stringify({
+            'prompt':  prompt
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        window.location.href = `http://127.0.0.1:8000/plan-trip/planned-trip/${data.planned_trip_id}`
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+    </script>                        
+                </div>
+
+               
+        </div>
+    </div>
+
+    <div id="planned-trip-details"></div>
+
+    <div id="popular-destinations-slider">
+        <h2>Popular Destinations</h2>
+        <div class="slider-container">
+            <div class="slide">
+                <p>Abuja, Nigeria</p>
+            </div>
+            <div class="slide">
+                <p>California, USA</p>
+            </div>
+            <div class="slide">
+                <p>Paris, France</p>
+            </div>
+            <div class="slide">
+                <p>Tokyo, Japan</p>
+            </div>
+            <div class="slide">
+                <p>Rome, Italy</p>
+            </div>
+            <div class="slide">
+                <p>Sydney, Australia</p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

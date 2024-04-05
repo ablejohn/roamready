@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary</title>
+    <link rel="stylesheet" href="{% static 'css/planned_trip.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+    
+    
+    <h1>TRAVEL ITINERARY</h1>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Activity</th>
+            <th>Location</th>
+            <th>Accommodation</th>
+            <th>Sightseeing Options</th>
+            <th>Cost</th>
+        </tr>
+        <script>
+            const data = {{ planned_trip.gpt_response | safe }};
+            const table = document.querySelector('table');
+    
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.Day}</td>
+                    <td>${item.Activity}</td>
+                    <td>${item.Location}</td>
+                    <td>${item.Accommodation}</td>
+                    <td>
+                        <ul>
+                            <li>${item['Sightseeing Options']}</li>
+                        </ul>
+                    </td>
+                    <td>${item.Cost}</td>
+                `;
+                table.appendChild(row);
+            });
+        </script>
+    </table>
+    <script>
+        function downloadPDF() {
+          const element = document.querySelector('body');
+          const opt = {
+            margin: 0.5,
+            filename: 'planned_itinerary.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+          };
+        
+          html2pdf().set(opt).from(element).save();
+        }
+        </script>
+        
+        <button onclick="downloadPDF()" style="background-color:#E61C5D; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; text-transform:uppercase; margin-top:20px; text-align:center; margin-left:500px;border-radius:20px;">Download Itinerary as PDF</button>
+    
+</body>
+
+</html>

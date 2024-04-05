@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+   href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;400;500;600;700&display=swap"
+   rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+      
+  <title>Community</title>
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+</head>
+<body>
+  <header>
+    <div class="navbarcontainer">
+      <a href="/">
+        <img src="{% static 'img/Roam Ready logo.png' %}" alt="Your Logo" class="logo">
+    </a>
+    
+    {% include 'includes/_navbar.html' %}
+    </div>
+  </header>
+
+  <main>
+    <div class="contentcontainerc">
+      <div class="smalltopc">
+        <p>Our Community <p> 
+        </div>
+        <div class="bigtopc">
+          <p><strong>Satisfied travellers around</strong p>
+            <p class="wow">the World<p>
+        </div>
+        <div class="box-container">
+          <img src="{% static 'img/quote-down-circle.png' %}" alt="quote" class="quote-down-circle">
+          <img src="{% static 'img/box1.png' %}" alt="box1" class="box1">
+          <p class="box-word"><strong>Eleano Pena</strong></p>
+          <p class="box-word1">Designer</p>
+          <img src="{% static 'img/Stars.png' %}" alt="starrating" class="stars">
+          <p class="box-word2">Customer testimonials are more effective than paid marketing copy as they take the spotlight away from the seller to shine it on the customers.</p>
+      </div>
+      
+      <div class="box-container2">
+          <img src="{% static 'img/quote-down-circle.png' %}" alt="quote" class="quote-down-circle">
+          <img src="{% static 'img/box 2.png' %}" alt="box1" class="box1">
+          <p class="box-word"><strong>Jacob Webb</strong></p>
+          <p class="box-word1">Vlogger</p>
+          <img src="{% static 'img/Stars.png' %}" alt="starrating" class="stars">
+          <p class="box-word2">In promotion and advertising, a testimonial or show consists of a person's written statement extolling the virtue of a product.</p>
+      </div>
+      
+      <div class="box-container3">
+          <img src="{% static 'img/quote-down-circle.png' %}" alt="quote" class="quote-down-circle">
+          <img src="{% static 'img/box 3.png' %}" alt="box1" class="box1">
+          <p class="box-word"><strong>Anitta Mary</strong></p>
+          <p class="box-word1">Doctor</p>
+          <img src="{% static 'img/Stars.png' %}" alt="starrating" class="stars">
+          <p class="box-word2">Testimonials work because they aren''t strong sales pitches, they come across in an unbiased voice and establish trust</p>
+      </div>
+
+      
+       </main>
+  <tail>
+    <div class="footercontainer">
+      <div class="footercontent">
+        <img src="{% static 'Roam Ready logo.png' %}" alt="footerlogo"class="footerlogo">
+        <p class="address">423, London United Kingdom.</p>
+        <img src="{% static 'socialmedia.png' %}" alt="socialmedia" class="socialmedia">
+        <div class="aboutcontainer">
+          <p><strong>About </strong></p>
+          <p>About us</p>
+          <p>Features</p>
+          <p>News</p>
+          <p>Plans</p>
+        </div>
+        <div class="companycontainer">
+          <p><strong>Company</strong></p>
+          <p>Why Roam Ready</p>
+          <p>Partner with Us</p>
+          <p>FAQ</p>
+          <p>Blogs</p>
+      </div>
+      <div class="supportcontainer">
+        <p><strong>Support</strong></p>
+        <p>Account</p>
+        <p>Support Center</p>
+        <p>Feedback</p>
+        <p>Contact Us</p>
+    </div>
+    <div class="newslettercontainer">
+      <p><strong>Newsletter</strong></p>
+      <p>Subscribe our newsletter and get</p>
+      <p>exciting offers </p>
+      <div class="emailcontainer">
+        <input type="email" class="email-input" placeholder="Enter your email address">
+        <a href="">
+        <img src="Send button.png" alt="sendbutton" class="sendbutton">
+      </a>
+      </div>
+  </div>
+    </div>
+  </tail>
+</body>
+</html>

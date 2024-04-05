@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
+  <title>HomePage</title>
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+<body>
+  <header>
+    <div class="navbarcontainer">
+      <a href="/">
+        <img src="{% static 'img/Roam Ready logo.png' %}" alt="Your Logo" class="logo">
+      </a>
+
+      {% include 'includes/_navbar.html' %}
+    </div>
+  </header>
+  <main>
+    <div class="world">
+      <img src="{% static 'img/world background.png' %}" alt="worldbackground" class="background-img">
+    </div>
+    <div class="word">
+      <p>It's more than </p>
+      <p class="center">just a trip</p>
+    </div>
+    </div>
+    <div class="rectanglecontainer">
+      <div class="rectanglesection">
+        <i class="fas fa-plane-arrival"></i>
+        <input type="text" id="destination" name="Destination" class="destinationinput" placeholder="From Where?">
+      </div>
+      <div class="rectanglesection">
+        <i class="fas fa-plane-departure"></i>
+        <input type="text" id="destination" name="Destination" class="destinationinput" placeholder="Where to?">
+      </div>
+      <div class="rectanglesection" id="departure-section">
+        <input type="text" id="departure" name="Departure" class="destinationinput" placeholder="Departure" readonly>
+        <i class="fas fa-calendar calendar-icon"></i>
+      </div>
+
+      <div class="rectanglesection" id="return-section">
+        <input type="text" id="return" name="Return" class="destinationinput" placeholder="Return" readonly>
+        <i class="fas fa-calendar calendar-icon"></i>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+        $(document).ready(function () {
+          $("#departure").datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function (dateText) {
+              $("#return").datepicker("option", "minDate", dateText);
+            }
+          });
+
+          $("#return").datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function (dateText) {
+              $("#departure").datepicker("option", "maxDate", dateText);
+            }
+          });
+
+          $(".calendar-icon").click(function () {
+            $(this).prev(".destinationinput").datepicker("show");
+          });
+        });
+      </script>
+
+      <div class="rectanglesection">
+        <i class="fas fa-user"></i>
+        <input type="text" id="destination" name="Destination" class="destinationinput" placeholder="How many people?">
+      </div>
+
+      <a href="https://www.expedia.ca/Flights" class="rectanglesection search">
+        <button class="rectanglesearch">Search</button>
+      </a>
+
+    </div>
+    </div>
+    <div class="word1">
+      <p>Popular flight destinations</p>
+    </div>
+    <div class="fullcard">
+      <img src="{% static 'img/full card.png' %}" alt="fullcard">
+      <img src="{% static 'img/full card2.png' %}" alt="fullcard">
+      <img src="{% static 'img/full card3.png' %}" alt="fullcard">
+    </div>
+
+
+  </main>
+  <footer>
+    <div class="footercontainer">
+      <div class="footercontent">
+        <img src="{% static 'img/Roam Ready logo.png' %}" alt="footerlogo" class="footerlogo">
+        <p class="address">423, London United Kingdom.</p>
+        <img src="{% static 'img/socialmedia.png' %}" alt="socialmedia" class="socialmedia">
+        <div class="aboutcontainer">
+          <p><strong>About </strong></p>
+          <p>About us</p>
+          <p>Features</p>
+          <p>News</p>
+          <p>Plans</p>
+        </div>
+        <div class="companycontainer">
+          <p><strong>Company</strong></p>
+          <p>Why Roam Ready</p>
+          <p>Partner with Us</p>
+          <p>FAQ</p>
+          <p>Blogs</p>
+        </div>
+        <div class="supportcontainer">
+          <p><strong>Support</strong></p>
+          <p>Account</p>
+          <p>Support Center</p>
+          <p>Feedback</p>
+          <p>Contact Us</p>
+        </div>
+        <div class="newslettercontainer">
+          <p><strong>Newsletter</strong></p>
+          <p>Subscribe our newsletter and get</p>
+          <p>exciting offers </p>
+          <div class="emailcontainer">
+            <input type="email" class="email-input" placeholder="Enter your email address">
+            <a href="">
+              <img src="{% static 'img/Send button.png' %}" alt="sendbutton" class="sendbutton">
+            </a>
+          </div>
+        </div>
+      </div>
+  </footer>
+</body>

@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+   href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;400;500;600;700&display=swap"
+   rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+      
+  <title>HomePage</title>
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+</head>
+<body>
+  <header>
+    <div class="navbarcontainer">
+      <a href="index.html">
+        <img src="{% static 'img/Roam Ready logo.png' %}" alt="Your Logo" class="logo">
+    </a>
+    
+    {% include 'includes/_navbar.html' %}
+    </div>
+  </header>
+  <main>
+    <div class="contentcontainer">
+      <div class="smalltop">
+        <p>TAILORED FOR YOUR NEXT ADVENTURES <p> 
+        </div>
+        <div class="bigtop">
+          <p><strong>Roam Ready AI Travel Planner</strong p>
+        </div>
+      
+      <p>Craft, customize, and elevate your travel plans</p>
+      <p>with our complimentary AI trip planner.</p>
+      <p>Tailor-made for vacations, workations, </p>
+      <p>and everyday adventures.</p>
+    </div>
+   <div class="rectangle">
+    <img src="{% static 'img/location icon.png' %}" alt="loction icon" class="location">
+    <h6 class="locationtext">Location</h6>
+    <select name="arrowdown" id="location-dropdown">
+      <option value="option1"> Allenton, New Mexico</option>
+      <option value="option2">New, Jersey USA</option>
+      <option value="option3">Abuja, Nigeria</option>
+    </select>
+    
+    <img src="{% static 'img/Divider.png' %}" alt="Divider" class="Divider">
+    <img src="{% static 'img/calendar icon.png' %}"alt="calendaricon" class="calendaricon">
+    <h6 class="date1">Date</h6>
+
+    <div class="date-select-box">
+      <input type="date" id="date" name="date" class="dateinput"placeholder="Enter Date">
+    </div>
+    <a href="bookaflight.html">
+      <img src="{% static 'img/search icon.png' %}" alt="search icon" class="searchicon">
+    </a>
+           
+   </div class="rectangle2">
+   <a href="planatrip.html">
+    <button class="buttonstyle">Get Started</button>
+  </a>
+   <div>
+    <div class="icon-container">
+      <img src="{% static 'img/plane.png' %}" alt="Aeroplane Icon" class="aeroplane-icon">
+    </div>
+   </div>
+    <div class="imagecontainer">
+    <img src="{% static 'img/Traveller 1.png' %}" alt="traveller 1">
+    </div>
+
+    <div class="contentcontainer2">
+      <div class="smalltop">
+        <p>CONNECT WITH OTHER TRAVELERS<p>
+      </div>
+      <div class="bigtop">
+        <p><strong>Travelling made easy</strong p>
+        </div>
+        <p>Embark on a journey of connections with Roam Ready.</p>
+        <p>Our platform goes beyond planning; it fosters a </p>
+        <p>community of like-minded explorers.</p>
+        <p>Connect with fellow travelers heading to the same</p>
+        <p>destination, exchange insights, and plan meetups.</p>
+    </div>
+    <div class="imagecontainer2">
+    <img src="{% static 'img/content 2.png' %}"alt="content 2">
+    </div>
+    <div class="imagecontainer3">
+      <img src="{% static 'img/img 2.png' %}"alt="content 3">
+    </div>
+    <div class="contentcontainer3">
+    <div class="smalltop">
+      <p>TOUR PACKAGES</p>
+    </div>
+    <div class="bigtop">
+      <p>The amazing places around <span class="theworld">the World</span></p>
+    </div>
+    
+      <img src="{% static 'img/slider1.png' %}" alt="slider1" class="slider1">
+      <img src="{% static 'img/slider2.png' %}" alt="slider2" class="slider2">
+      <img src="{% static 'img/slider3.png' %}" alt="slider3" class="slider3">
+      <img src="{% static 'img/slider4.png' %}" alt="slider4" class="slider4">
+    </div>
+    
+    <div class="contentcontainer4">
+      <div class="smalltop">
+        <p>BOOK ALL YOUR TRAVEL TICKET<p>
+      </div>
+      <div class="bigtop">
+        <p><strong>Swift Ticketing</strong p>
+        </div>
+        <p>Roam Ready ensures a seamless travel experience by</p>
+        <p>providing you with a reliable website where you can </p>
+        <p>effortlessly order all your travel tickets. </p>
+        <p>Our dedicated ticketing service streamlines the booking</p>
+        <p>process, offering you a one-stop solution for flights, </p>
+        <p>accommodations, and more.</p>
+    </div>
+    <div>
+      <img src="{% static 'img/ticketting.png' %}" alt="ticketting" class="ticketing">
+    </div>
+    <div class="contentcontainer5">
+    <div class="smalltopc" >
+      <p>Our Community </p>
+    </div>
+    <div class="bigtop">
+      <p>Satisfied travellers around <span class="theworld2">the World</span></p>
+    </div>
+  </div>
+ <div class="card">
+<img src="{% static 'img/Card.png' %}" alt="card"class="card1">
+<img src="{% static 'img/Card-1.png' %}" alt="card" class="card2">
+<img src="{% static 'img/Card-2.png' %}" alt="card" class="card3">
+ </div> 
+
+  
+  
+  </main>
+  <footer>
+    <div class="footercontainer">
+      <div class="footercontent">
+        <img src="{% static 'img/Roam Ready logo.png' %}" alt="footerlogo"class="footerlogo">
+        <p class="address">423, London United Kingdom.</p>
+        <img src="{% static 'img/socialmedia.png' %}" alt="socialmedia" class="socialmedia">
+        <div class="aboutcontainer">
+          <p><strong>About </strong></p>
+          <p>About us</p>
+          <p>Features</p>
+          <p>News</p>
+          <p>Plans</p>
+        </div>
+        <div class="companycontainer">
+          <p><strong>Company</strong></p>
+          <p>Why Roam Ready</p>
+          <p>Partner with Us</p>
+          <p>FAQ</p>
+          <p>Blogs</p>
+      </div>
+      <div class="supportcontainer">
+        <p><strong>Support</strong></p>
+        <p>Account</p>
+        <p>Support Center</p>
+        <p>Feedback</p>
+        <p>Contact Us</p>
+    </div>
+    <div class="newslettercontainer">
+      <p><strong>Newsletter</strong></p>
+      <p>Subscribe our newsletter and get</p>
+      <p>exciting offers </p>
+      <div class="emailcontainer">
+        <input type="email" class="email-input" placeholder="Enter your email address">
+        <a href="">
+        <img src="{% static 'img/Send button.png' %}" alt="sendbutton" class="sendbutton">
+      </a>
+      </div>
+  </div>
+    </div>
+  </footer>
+</body>
+</html>

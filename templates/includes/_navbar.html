@@ -1,0 +1,19 @@
+<div class="navbar">
+  <a href="/">Home</a>
+  <a href="{% url 'plan_a_trip' %}">{% if 'plan-a-trip' in request.path %} <strong>Plan a Trip </strong> {% else %} Plan a Trip {% endif %}</a>
+  <a href="{% url 'book_a_flight' %}">{% if 'book-a-flight' in request.path %}<strong>Book a flight</strong> {% else %} Book a flight {% endif %} </a>
+  <a href="{% url 'community' %}"> {% if 'community' in request.path %} <strong> Community  
+  </strong> {% else %} Community {% endif %} </a>
+  {% if 'plan-trip' in request.path %}
+  {% else %}
+    <div class="button">
+      {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}"><button>Logout</button></a>
+      <a href="#"><i class="fas fa-user"></i></a>
+      {% else %}
+        <a href="{% url 'signup' %}"><button>Signup</button></a>
+        <a href="{% url 'signin' %}"><button>Signin</button></a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
